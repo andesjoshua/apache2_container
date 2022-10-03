@@ -1,0 +1,9 @@
+FROM ubuntu@sha256:2d7ecc9c5e08953d586a6e50c29b91479a48f69ac1ba1f9dc0420d18a728dfc5
+# FROM ubuntu:latest
+
+RUN apt-get update
+
+RUN apt-get install apache2 -y
+WORKDIR /var/www/html/
+RUN cp index.html index2.html
+RUN sed -i "s|div |notadiv |g" index2.html
